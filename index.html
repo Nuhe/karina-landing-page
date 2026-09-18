@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!-- ============================================================
+     SEO / SOCIAL  —  reemplazar los [PLACEHOLDERS]
+     ============================================================ -->
+<title>[NOMBRE ASESORA] · Asesora de SanCor Salud en [ZONA]</title>
+<meta name="description" content="Asesoramiento sin cargo para elegir tu plan de SanCor Salud en [ZONA]. Comparación de planes, gestión del alta y seguimiento posterior. Escribime por WhatsApp.">
+<link rel="canonical" href="https://[DOMINIO]/">
+<meta name="theme-color" content="#1E5A9C">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:site_name" content="[NOMBRE ASESORA] — Asesora SanCor Salud">
+<meta property="og:title" content="[NOMBRE ASESORA] · Asesora de SanCor Salud en [ZONA]">
+<meta property="og:description" content="Te ayudo a elegir el plan de SanCor Salud que realmente te sirve. Asesoramiento sin cargo.">
+<meta property="og:url" content="https://[DOMINIO]/">
+<meta property="og:image" content="https://[DOMINIO]/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "InsuranceAgency",
+  "name": "[NOMBRE ASESORA] — Asesora de SanCor Salud",
+  "description": "Asesoramiento sin cargo en planes de salud de SanCor Salud.",
+  "url": "https://[DOMINIO]/",
+  "telephone": "+54 9 [TELEFONO]",
+  "email": "[EMAIL]",
+  "areaServed": "[ZONA]",
+  "priceRange": "$$",
+  "address": { "@type": "PostalAddress", "addressLocality": "[CIUDAD]", "addressRegion": "[PROVINCIA]", "addressCountry": "AR" },
+  "employee": { "@type": "Person", "name": "[NOMBRE ASESORA]", "jobTitle": "Asesora comercial matriculada", "identifier": "Matrícula [MATRICULA]" }
+}
+</script>
+
+<style>
+/* ============================================================
+   1. TOKENS
+   ------------------------------------------------------------
+   Paleta base (única fuente de verdad de color).
+   Roles semánticos derivados: nunca usar el hex crudo abajo.
+
+   Nota de contraste (WCAG 2.1 AA, verificado):
+     #0F2740 sobre blanco .......... 15.17:1
+     #4A6885 sobre blanco ...........5.82:1
+     #1E5A9C sobre blanco ...........7.01:1
+     blanco  sobre #1E5A9C ..........7.01:1  <- botón primario
+     blanco  sobre #3E8FD6 ..........3.44:1  <- SOLO decorativo / texto 24px+
+   Por eso #3E8FD6 y #7FC4F2 se usan como acento, borde e ilustración,
+   nunca como fondo de texto chico en blanco.
+   ============================================================ */
+:root{
+  /* paleta cruda */
+  --blue-50:#EAF6FF;
+  --blue-100:#BFE3FA;
+  --blue-300:#7FC4F2;
+  --blue-500:#3E8FD6;
+  --blue-700:#1E5A9C;
+  --blue-800:#164A82;
+
+  /* roles */
+  --bg:#FFFFFF;
+  --bg-soft:#F7FBFE;
+  --bg-tint:var(--blue-50);
+  --bg-invert:var(--blue-700);
+  --surface:#FFFFFF;
+
+  --ink:#0F2740;
+  --ink-muted:#4A6885;
+  --ink-invert:#FFFFFF;
+  --ink-invert-muted:var(--blue-100);
+
+  --brand:var(--blue-700);
+  --brand-hover:var(--blue-800);
+  --accent:var(--blue-500);
+  --accent-soft:var(--blue-300);
+
+  --line:#DCEDFA;
+  --line-strong:var(--blue-100);
+
+  /* radios — el "bordes redondos" del brief, escalado */
+  --r-xs:10px;
+  --r-sm:14px;
+  --r-md:20px;
+  --r-lg:28px;
+  --r-xl:40px;
+  --r-full:999px;
+
+  /* sombras teñidas de azul, nunca negro puro */
+  --sh-sm:0 1px 2px rgba(30,90,156,.05), 0 2px 8px rgba(30,90,156,.04);
+  --sh-md:0 2px 4px rgba(30,90,156,.04), 0 12px 28px rgba(30,90,156,.08);
+  --sh-lg:0 4px 8px rgba(30,90,156,.05), 0 24px 56px rgba(30,90,156,.12);
+
+  /* escala tipográfica fluida (320px -> 1440px) */
+  --t-xs:clamp(.8125rem,.79rem + .1vw,.875rem);
+  --t-sm:clamp(.875rem,.85rem + .12vw,.9375rem);
+  --t-base:clamp(1rem,.96rem + .18vw,1.0625rem);
+  --t-md:clamp(1.0625rem,1rem + .3vw,1.1875rem);
+  --t-lg:clamp(1.25rem,1.15rem + .5vw,1.5rem);
+  --t-xl:clamp(1.5rem,1.3rem + 1vw,2rem);
+  --t-2xl:clamp(1.875rem,1.5rem + 1.8vw,2.75rem);
+  --t-3xl:clamp(2.125rem,1.55rem + 2.8vw,3.5rem);
+
+  /* ritmo */
+  --gap:clamp(1rem,.8rem + 1vw,1.5rem);
+  --pad-x:clamp(1.25rem,1rem + 2vw,2rem);
+  --section-y:clamp(4rem,3rem + 6vw,7.5rem);
+  --maxw:1180px;
+
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+/* ============================================================
+   2. RESET
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box}
+*{margin:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:96px}
+body{
+  font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-size:var(--t-base);
+  line-height:1.65;
+  color:var(--ink);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+img,svg{display:block;max-width:100%}
+img{height:auto}
+button,input,select,textarea{font:inherit;color:inherit}
+h1,h2,h3,h4{line-height:1.15;letter-spacing:-.02em;font-weight:700;text-wrap:balance}
+p{text-wrap:pretty}
+a{color:var(--brand);text-underline-offset:3px}
+ul{list-style:none;padding:0}
+
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:var(--r-xs)}
+::selection{background:var(--blue-100);color:var(--ink)}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+
+/* ============================================================
+   3. LAYOUT PRIMITIVES
+   ============================================================ */
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad-x)}
+.section{padding-block:var(--section-y)}
+.section--tint{background:var(--bg-tint)}
+.section--soft{background:var(--bg-soft)}
+
+.skip{
+  position:absolute;left:var(--pad-x);top:-100px;z-index:200;
+  background:var(--brand);color:var(--ink-invert);
+  padding:.75rem 1.25rem;border-radius:var(--r-sm);font-weight:600;text-decoration:none;
+  transition:top .2s var(--ease);
+}
+.skip:focus{top:1rem}
+
+.head{max-width:62ch;margin-bottom:clamp(2rem,1.5rem + 2vw,3.5rem)}
+.head--center{margin-inline:auto;text-align:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:var(--t-xs);font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--brand);background:var(--blue-50);
+  border:1px solid var(--line-strong);border-radius:var(--r-full);
+  padding:.4rem .9rem;margin-bottom:1.25rem;
+}
+.section--tint .eyebrow{background:var(--surface)}
+.head h2{font-size:var(--t-2xl)}
+.head p{margin-top:1rem;font-size:var(--t-md);color:var(--ink-muted)}
+
+/* ============================================================
+   4. BOTONES
+   ============================================================ */
+.btn{
+  --btn-bg:var(--brand); --btn-fg:var(--ink-invert); --btn-bd:var(--brand);
+  display:inline-flex;align-items:center;justify-content:center;gap:.6rem;
+  padding:.875rem 1.6rem;min-height:52px;
+  font-size:var(--t-sm);font-weight:600;letter-spacing:-.01em;text-decoration:none;
+  color:var(--btn-fg);background:var(--btn-bg);
+  border:1.5px solid var(--btn-bd);border-radius:var(--r-full);
+  cursor:pointer;white-space:nowrap;
+  transition:background .18s var(--ease),border-color .18s var(--ease),transform .18s var(--ease),box-shadow .18s var(--ease);
+}
+.btn:hover{--btn-bg:var(--brand-hover);--btn-bd:var(--brand-hover);transform:translateY(-2px);box-shadow:var(--sh-md)}
+.btn:active{transform:translateY(0)}
+.btn svg{width:18px;height:18px;flex:none}
+
+.btn--ghost{--btn-bg:transparent;--btn-fg:var(--brand);--btn-bd:var(--line-strong)}
+.btn--ghost:hover{--btn-bg:var(--blue-50);--btn-fg:var(--brand);--btn-bd:var(--accent-soft)}
+
+.btn--light{--btn-bg:var(--surface);--btn-fg:var(--brand);--btn-bd:var(--surface)}
+.btn--light:hover{--btn-bg:var(--blue-50);--btn-bd:var(--blue-50);--btn-fg:var(--brand)}
+
+.btn--outline-invert{--btn-bg:transparent;--btn-fg:var(--ink-invert);--btn-bd:rgba(255,255,255,.45)}
+.btn--outline-invert:hover{--btn-bg:rgba(255,255,255,.12);--btn-bd:rgba(255,255,255,.7);--btn-fg:var(--ink-invert)}
+
+.btn--block{width:100%}
+.btn--sm{padding:.6rem 1.15rem;min-height:42px;font-size:var(--t-xs)}
+
+/* ============================================================
+   5. HEADER
+   ============================================================ */
+.site-header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,255,255,.82);
+  backdrop-filter:saturate(180%) blur(14px);
+  -webkit-backdrop-filter:saturate(180%) blur(14px);
+  border-bottom:1px solid transparent;
+  transition:border-color .25s var(--ease),box-shadow .25s var(--ease);
+}
+.site-header.is-stuck{border-bottom-color:var(--line);box-shadow:var(--sh-sm)}
+.nav{display:flex;align-items:center;gap:1.25rem;min-height:76px}
+
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--ink);margin-right:auto}
+.brand__mark{
+  width:40px;height:40px;flex:none;display:grid;place-items:center;
+  background:var(--brand);color:var(--ink-invert);
+  border-radius:13px;font-weight:700;font-size:.9rem;letter-spacing:-.02em;
+}
+.brand__txt{display:flex;flex-direction:column;line-height:1.2}
+.brand__txt b{font-size:var(--t-sm);font-weight:700;letter-spacing:-.01em}
+.brand__txt span{font-size:var(--t-xs);color:var(--ink-muted);font-weight:500}
+
+.nav__links{display:flex;align-items:center;gap:.25rem}
+.nav__links a{
+  padding:.5rem .85rem;border-radius:var(--r-full);
+  font-size:var(--t-sm);font-weight:500;color:var(--ink-muted);text-decoration:none;
+  transition:color .18s var(--ease),background .18s var(--ease);
+}
+.nav__links a:hover{color:var(--brand);background:var(--blue-50)}
+.nav__cta-mobile{display:none}
+
+.nav__toggle{
+  display:none;width:46px;height:46px;flex:none;
+  align-items:center;justify-content:center;
+  background:var(--surface);border:1.5px solid var(--line-strong);border-radius:var(--r-sm);
+  cursor:pointer;color:var(--brand);
+}
+.nav__toggle svg{width:22px;height:22px}
+.nav__toggle .ico-close{display:none}
+.nav__toggle[aria-expanded="true"] .ico-open{display:none}
+.nav__toggle[aria-expanded="true"] .ico-close{display:block}
+
+@media (max-width:900px){
+  .nav__cta{display:none}
+  .nav__toggle{display:inline-flex}
+  .nav__links{
+    position:absolute;left:var(--pad-x);right:var(--pad-x);top:calc(100% + 10px);
+    flex-direction:column;align-items:stretch;gap:.15rem;
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+    padding:.75rem;box-shadow:var(--sh-lg);
+    opacity:0;visibility:hidden;transform:translateY(-8px);
+    transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s;
+  }
+  .nav__links.is-open{opacity:1;visibility:visible;transform:translateY(0)}
+  .nav__links a{padding:.8rem 1rem;border-radius:var(--r-sm);font-size:var(--t-base)}
+  .nav__cta-mobile{display:inline-flex;margin-top:.4rem}
+}
+
+/* ============================================================
+   6. HERO
+   ============================================================ */
+.hero{position:relative;padding-block:clamp(3rem,2rem + 5vw,6rem) var(--section-y);overflow:hidden}
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:
+    radial-gradient(760px 520px at 88% -10%, var(--blue-100) 0%, transparent 62%),
+    radial-gradient(620px 460px at 4% 8%, var(--blue-50) 0%, transparent 60%);
+}
+.hero__grid{
+  display:grid;grid-template-columns:1.05fr .95fr;
+  gap:clamp(2rem,1.5rem + 4vw,4.5rem);align-items:center;
+}
+.hero h1{font-size:var(--t-3xl);letter-spacing:-.035em}
+.hero h1 em{font-style:normal;color:var(--brand)}
+.hero__lead{margin-top:1.25rem;font-size:var(--t-md);color:var(--ink-muted);max-width:52ch}
+.hero__actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+
+.trust{display:flex;flex-wrap:wrap;gap:.5rem .65rem;margin-top:2.25rem;padding-top:1.75rem;border-top:1px solid var(--line-strong)}
+.trust li{
+  display:inline-flex;align-items:center;gap:.45rem;
+  font-size:var(--t-xs);font-weight:600;color:var(--ink-muted);
+  background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--r-full);padding:.45rem .85rem;
+}
+.trust svg{width:15px;height:15px;color:var(--accent);flex:none}
+
+/* tarjeta de foto */
+.hero__card{position:relative}
+.photo{
+  position:relative;aspect-ratio:4/5;
+  border-radius:var(--r-xl);overflow:hidden;
+  background:linear-gradient(160deg,var(--blue-100),var(--blue-300));
+  border:1px solid rgba(255,255,255,.7);box-shadow:var(--sh-lg);
+}
+.photo img{width:100%;height:100%;object-fit:cover}
+.photo__ph{
+  position:absolute;inset:0;display:grid;place-content:center;gap:.6rem;justify-items:center;
+  color:var(--blue-700);text-align:center;padding:2rem;
+}
+.photo__ph svg{width:64px;height:64px;opacity:.65}
+.photo__ph span{font-size:var(--t-sm);font-weight:600;max-width:24ch}
+
+.badge-float{
+  position:absolute;left:-14px;bottom:28px;
+  display:flex;align-items:center;gap:.75rem;
+  background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--r-lg);padding:.9rem 1.15rem;box-shadow:var(--sh-md);
+  max-width:min(300px,86%);
+}
+.badge-float__ico{
+  width:42px;height:42px;flex:none;display:grid;place-items:center;
+  background:var(--blue-50);color:var(--brand);border-radius:13px;
+}
+.badge-float__ico svg{width:21px;height:21px}
+.badge-float b{display:block;font-size:var(--t-sm);letter-spacing:-.01em}
+.badge-float span{display:block;font-size:var(--t-xs);color:var(--ink-muted);line-height:1.4}
+
+@media (max-width:900px){
+  .hero__grid{grid-template-columns:1fr;gap:2.5rem}
+  .hero__card{order:-1;max-width:420px;margin-inline:auto;width:100%}
+  .photo{aspect-ratio:4/3.4}
+  .badge-float{left:50%;transform:translateX(-50%);bottom:-26px;width:max-content;max-width:94%}
+  .hero__card{margin-bottom:2.25rem}
+  .trust{justify-content:flex-start}
+}
+
+/* ============================================================
+   7. CARDS GENÉRICAS
+   ============================================================ */
+.grid{display:grid;gap:var(--gap)}
+.grid--3{grid-template-columns:repeat(3,1fr)}
+.grid--4{grid-template-columns:repeat(4,1fr)}
+.grid--2{grid-template-columns:repeat(2,1fr)}
+@media (max-width:980px){.grid--4{grid-template-columns:repeat(2,1fr)}.grid--3{grid-template-columns:1fr}}
+@media (max-width:640px){.grid--4,.grid--2{grid-template-columns:1fr}}
+
+.card{
+  background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--r-lg);padding:clamp(1.5rem,1.2rem + 1vw,2rem);
+  transition:transform .22s var(--ease),box-shadow .22s var(--ease),border-color .22s var(--ease);
+}
+.card:hover{transform:translateY(-4px);box-shadow:var(--sh-md);border-color:var(--line-strong)}
+.card h3{font-size:var(--t-lg);margin-bottom:.6rem}
+.card p{color:var(--ink-muted);font-size:var(--t-sm)}
+
+.ico{
+  width:52px;height:52px;display:grid;place-items:center;
+  background:var(--blue-50);color:var(--brand);
+  border:1px solid var(--line-strong);border-radius:var(--r-md);
+  margin-bottom:1.25rem;
+}
+.ico svg{width:24px;height:24px}
+
+/* ============================================================
+   8. PLANES
+   ============================================================ */
+.plans{align-items:stretch}
+.plan{
+  position:relative;display:flex;flex-direction:column;
+  background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--r-xl);padding:clamp(1.75rem,1.4rem + 1.2vw,2.25rem);
+  transition:transform .22s var(--ease),box-shadow .22s var(--ease),border-color .22s var(--ease);
+}
+.plan:hover{transform:translateY(-4px);box-shadow:var(--sh-md)}
+.plan--featured{
+  border-color:var(--accent-soft);border-width:2px;
+  box-shadow:var(--sh-lg);background:linear-gradient(180deg,var(--blue-50) 0%,var(--surface) 34%);
+}
+.plan__tag{
+  position:absolute;top:-13px;left:clamp(1.75rem,1.4rem + 1.2vw,2.25rem);
+  background:var(--brand);color:var(--ink-invert);
+  font-size:var(--t-xs);font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+  padding:.35rem .85rem;border-radius:var(--r-full);
+}
+.plan__name{font-size:var(--t-lg);margin-bottom:.4rem}
+.plan__for{font-size:var(--t-sm);color:var(--ink-muted);min-height:3em}
+.plan__price{
+  display:flex;align-items:baseline;gap:.4rem;flex-wrap:wrap;
+  margin:1.25rem 0;padding-block:1.25rem;
+  border-block:1px solid var(--line);
+}
+.plan__price b{font-size:var(--t-xl);letter-spacing:-.03em;color:var(--brand)}
+.plan__price span{font-size:var(--t-xs);color:var(--ink-muted)}
+.plan__list{display:flex;flex-direction:column;gap:.7rem;margin-bottom:1.75rem;flex:1}
+.plan__list li{display:flex;gap:.65rem;font-size:var(--t-sm);color:var(--ink-muted)}
+.plan__list svg{width:19px;height:19px;flex:none;color:var(--accent);margin-top:2px}
+
+/* Alineación fila a fila entre las 3 cards (nombre / bajada / precio / features / CTA).
+   Con subgrid las filas se alinean aunque los textos tengan distinto largo.
+   Sin subgrid cae al min-height de .plan__for, que es el fallback aceptable. */
+@supports (grid-template-rows:subgrid){
+  .plans{grid-template-rows:auto auto auto 1fr auto}
+  .plan{display:grid;grid-row:span 5;grid-template-rows:subgrid}
+  .plan__for{min-height:0}
+}
+@media (max-width:980px){
+  .plans{grid-template-rows:none}
+  .plan{display:flex;flex-direction:column;grid-row:auto}
+}
+
+.note{
+  display:flex;gap:.75rem;align-items:flex-start;
+  margin-top:2rem;padding:1.15rem 1.35rem;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);
+  font-size:var(--t-xs);color:var(--ink-muted);line-height:1.6;
+}
+.note svg{width:18px;height:18px;flex:none;color:var(--accent);margin-top:2px}
+
+/* ============================================================
+   9. PROCESO
+   ============================================================ */
+.steps{counter-reset:step;display:grid;gap:var(--gap);grid-template-columns:repeat(3,1fr)}
+@media (max-width:860px){.steps{grid-template-columns:1fr}}
+.step{position:relative;padding-top:1rem}
+.step::before{
+  counter-increment:step;content:counter(step,decimal-leading-zero);
+  display:grid;place-items:center;
+  width:56px;height:56px;margin-bottom:1.25rem;
+  background:var(--surface);border:1.5px solid var(--line-strong);border-radius:var(--r-md);
+  font-size:var(--t-sm);font-weight:700;color:var(--brand);
+}
+.step h3{font-size:var(--t-md);margin-bottom:.5rem}
+.step p{font-size:var(--t-sm);color:var(--ink-muted)}
+
+/* ============================================================
+   10. TESTIMONIOS
+   ============================================================ */
+.quote{
+  display:flex;flex-direction:column;gap:1.25rem;
+  background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--r-lg);padding:clamp(1.5rem,1.2rem + 1vw,2rem);
+}
+.quote__stars{display:flex;gap:.2rem;color:var(--accent)}
+.quote__stars svg{width:17px;height:17px}
+.quote p{font-size:var(--t-sm);color:var(--ink);line-height:1.7;flex:1}
+.quote footer{display:flex;align-items:center;gap:.8rem;padding-top:1rem;border-top:1px solid var(--line)}
+.avatar{
+  width:42px;height:42px;flex:none;display:grid;place-items:center;
+  background:var(--blue-100);color:var(--blue-700);
+  border-radius:var(--r-full);font-weight:700;font-size:var(--t-sm);
+}
+.quote footer b{display:block;font-size:var(--t-sm)}
+.quote footer span{display:block;font-size:var(--t-xs);color:var(--ink-muted)}
+
+/* ============================================================
+   11. FAQ
+   ============================================================ */
+.faq{max-width:820px;margin-inline:auto;display:flex;flex-direction:column;gap:.75rem}
+.faq details{
+  background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--r-md);overflow:hidden;
+  transition:border-color .2s var(--ease),box-shadow .2s var(--ease);
+}
+.faq details[open]{border-color:var(--line-strong);box-shadow:var(--sh-sm)}
+.faq summary{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:1.15rem 1.4rem;cursor:pointer;list-style:none;
+  font-size:var(--t-sm);font-weight:600;letter-spacing:-.01em;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{color:var(--brand)}
+.faq summary::after{
+  content:"";flex:none;width:11px;height:11px;
+  border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);
+  transform:rotate(45deg) translateY(-3px);
+  transition:transform .22s var(--ease);
+}
+.faq details[open] summary::after{transform:rotate(-135deg) translateY(-3px)}
+.faq .faq__body{padding:0 1.4rem 1.35rem;font-size:var(--t-sm);color:var(--ink-muted);line-height:1.7}
+
+/* ============================================================
+   12. CTA + FORMULARIO
+   ============================================================ */
+.contact{background:var(--bg-invert);color:var(--ink-invert);border-radius:var(--r-xl) var(--r-xl) 0 0}
+.contact .eyebrow{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.22);color:var(--ink-invert)}
+.contact h2{font-size:var(--t-2xl)}
+.contact__lead{margin-top:1rem;font-size:var(--t-md);color:var(--ink-invert-muted);max-width:46ch}
+.contact__grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(2rem,1.5rem + 3vw,4rem);align-items:start}
+@media (max-width:900px){.contact__grid{grid-template-columns:1fr}}
+
+.channels{display:flex;flex-direction:column;gap:.75rem;margin-top:2.25rem}
+.channel{
+  display:flex;align-items:center;gap:.9rem;
+  padding:1rem 1.15rem;text-decoration:none;color:var(--ink-invert);
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
+  border-radius:var(--r-md);
+  transition:background .18s var(--ease),border-color .18s var(--ease),transform .18s var(--ease);
+}
+.channel:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.34);transform:translateX(3px)}
+.channel__ico{width:40px;height:40px;flex:none;display:grid;place-items:center;background:rgba(255,255,255,.14);border-radius:12px}
+.channel__ico svg{width:20px;height:20px}
+.channel b{display:block;font-size:var(--t-sm)}
+.channel span{display:block;font-size:var(--t-xs);color:var(--ink-invert-muted)}
+
+.form{
+  background:var(--surface);color:var(--ink);
+  border-radius:var(--r-xl);padding:clamp(1.5rem,1.2rem + 1.5vw,2.5rem);
+  box-shadow:var(--sh-lg);
+}
+.form h3{font-size:var(--t-lg);margin-bottom:.4rem}
+.form > p{font-size:var(--t-sm);color:var(--ink-muted);margin-bottom:1.75rem}
+.field{display:flex;flex-direction:column;gap:.45rem;margin-bottom:1.1rem}
+.field label{font-size:var(--t-xs);font-weight:600;letter-spacing:.01em}
+.field label .req{color:var(--accent)}
+.field input,.field select,.field textarea{
+  width:100%;padding:.85rem 1.05rem;
+  background:var(--bg-soft);border:1.5px solid var(--line);border-radius:var(--r-sm);
+  font-size:var(--t-sm);
+  transition:border-color .18s var(--ease),background .18s var(--ease),box-shadow .18s var(--ease);
+}
+.field textarea{resize:vertical;min-height:110px}
+.field input:hover,.field select:hover,.field textarea:hover{border-color:var(--line-strong)}
+.field input:focus,.field select:focus,.field textarea:focus{
+  outline:none;background:var(--surface);
+  border-color:var(--accent);box-shadow:0 0 0 4px rgba(62,143,214,.15);
+}
+.field input::placeholder,.field textarea::placeholder{color:#8FA6BC}
+.field .err{font-size:var(--t-xs);color:#C0392B;display:none}
+.field.is-invalid input,.field.is-invalid select,.field.is-invalid textarea{border-color:#C0392B}
+.field.is-invalid .err{display:block}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+@media (max-width:520px){.row2{grid-template-columns:1fr}}
+
+.consent{display:flex;gap:.65rem;align-items:flex-start;margin:.35rem 0 1.5rem;font-size:var(--t-xs);color:var(--ink-muted);line-height:1.6}
+.consent input{width:18px;height:18px;flex:none;margin-top:2px;accent-color:var(--brand)}
+
+.hp{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+.form__status{margin-top:1rem;font-size:var(--t-sm);border-radius:var(--r-sm);padding:.9rem 1.1rem;display:none}
+.form__status.is-ok{display:block;background:var(--blue-50);color:var(--brand);border:1px solid var(--line-strong)}
+.form__status.is-err{display:block;background:#FDECEA;color:#A93226;border:1px solid #F5C6C0}
+
+/* ============================================================
+   13. FOOTER + FAB
+   ============================================================ */
+.site-footer{background:var(--bg-invert);color:var(--ink-invert-muted);padding-block:clamp(2.5rem,2rem + 2vw,4rem) 2rem}
+.site-footer .wrap{display:flex;flex-direction:column;gap:2rem}
+.footer__top{display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;align-items:flex-start}
+.footer__brand{display:flex;align-items:center;gap:.7rem;color:var(--ink-invert);text-decoration:none}
+.footer__brand .brand__mark{background:rgba(255,255,255,.16)}
+.footer__brand .brand__txt span{color:var(--ink-invert-muted)}
+.footer__nav{display:flex;flex-wrap:wrap;gap:.35rem 1.35rem}
+.footer__nav a{color:var(--ink-invert-muted);font-size:var(--t-sm);text-decoration:none;transition:color .18s var(--ease)}
+.footer__nav a:hover{color:var(--ink-invert)}
+.footer__legal{border-top:1px solid rgba(255,255,255,.18);padding-top:1.75rem;font-size:var(--t-xs);line-height:1.7;display:flex;flex-direction:column;gap:.75rem}
+.footer__legal a{color:var(--blue-100)}
+
+.fab{
+  position:fixed;right:clamp(1rem,2vw,1.75rem);bottom:clamp(1rem,2vw,1.75rem);z-index:90;
+  display:inline-flex;align-items:center;gap:.6rem;
+  padding:.9rem 1.3rem;
+  background:var(--brand);color:var(--ink-invert);text-decoration:none;font-weight:600;font-size:var(--t-sm);
+  border-radius:var(--r-full);box-shadow:var(--sh-lg);
+  opacity:0;visibility:hidden;transform:translateY(14px);
+  transition:opacity .3s var(--ease),transform .3s var(--ease),visibility .3s,background .18s var(--ease);
+}
+.fab.is-visible{opacity:1;visibility:visible;transform:translateY(0)}
+.fab:hover{background:var(--brand-hover)}
+.fab svg{width:20px;height:20px;flex:none}
+@media (max-width:520px){.fab span{display:none}.fab{padding:1rem;border-radius:var(--r-full)}}
+
+/* ============================================================
+   14. REVEAL ON SCROLL
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.reveal.is-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+
+/* ============================================================
+   15. PRINT
+   ============================================================ */
+@media print{
+  .site-header,.fab,.hero__card,.form,.nav__toggle{display:none!important}
+  body{color:#000}
+  .section{padding-block:1rem}
+}
+</style>
+</head>
+
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="site-header" id="header">
+  <div class="wrap nav">
+    <a class="brand" href="#inicio" aria-label="Inicio">
+      <span class="brand__mark" aria-hidden="true">[NA]</span>
+      <span class="brand__txt">
+        <b>[NOMBRE ASESORA]</b>
+        <span>Asesora SanCor Salud</span>
+      </span>
+    </a>
+
+    <nav class="nav__links" id="navLinks" aria-label="Navegación principal">
+      <a href="#planes">Planes</a>
+      <a href="#beneficios">Por qué conmigo</a>
+      <a href="#proceso">Cómo trabajo</a>
+      <a href="#opiniones">Opiniones</a>
+      <a href="#faq">Preguntas</a>
+      <a class="btn btn--sm nav__cta-mobile" href="#contacto">Pedir asesoramiento</a>
+    </nav>
+
+    <a class="btn btn--sm nav__cta" href="https://wa.me/[WHATSAPP]?text=Hola%20[NOMBRE%20ASESORA]%2C%20quiero%20asesoramiento%20sobre%20planes%20de%20SanCor%20Salud" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.48-1.76-1.65-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38c1.45.79 3.08 1.21 4.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.13c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.16.83.84-3.08-.2-.32a8.2 8.2 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23z"/></svg>
+      WhatsApp
+    </a>
+
+    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Abrir menú">
+      <svg class="ico-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg class="ico-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" id="inicio">
+  <div class="wrap hero__grid">
+    <div>
+      <span class="eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+        Asesora matriculada · [ZONA]
+      </span>
+
+      <h1>Elegí tu plan de salud <em>con alguien que te explica todo</em> antes de firmar.</h1>
+
+      <p class="hero__lead">
+        Soy [NOMBRE ASESORA], asesora de SanCor Salud hace [AÑOS] años. Comparamos coberturas,
+        revisamos carencias y preexistencias, y armamos el plan que se ajusta a tu grupo familiar
+        y a tu presupuesto. El asesoramiento no tiene costo.
+      </p>
+
+      <div class="hero__actions">
+        <a class="btn" href="https://wa.me/[WHATSAPP]?text=Hola%20[NOMBRE%20ASESORA]%2C%20quiero%20asesoramiento%20sobre%20planes%20de%20SanCor%20Salud" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.48-1.76-1.65-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38c1.45.79 3.08 1.21 4.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.13c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.16.83.84-3.08-.2-.32a8.2 8.2 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23z"/></svg>
+          Escribime por WhatsApp
+        </a>
+        <a class="btn btn--ghost" href="#planes">Ver los planes</a>
+      </div>
+
+      <ul class="trust">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> Asesoramiento sin cargo</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Matrícula [MATRICULA]</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Respuesta en el día</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg> [N] familias asesoradas</li>
+      </ul>
+    </div>
+
+    <div class="hero__card">
+      <figure class="photo">
+        <!-- Reemplazar por la foto real:
+             <img src="/img/asesora.jpg" alt="Retrato de [NOMBRE ASESORA], asesora de SanCor Salud"
+                  width="800" height="1000" fetchpriority="high"> -->
+        <div class="photo__ph">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.8" cy="9.2" r="1.9"/><path d="M21 16l-5.5-5.5L4 21"/></svg>
+          <span>[FOTO DE LA ASESORA — vertical, 800×1000 px, formato .webp]</span>
+        </div>
+      </figure>
+
+      <div class="badge-float">
+        <span class="badge-float__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+        </span>
+        <span>
+          <b>Asesora autorizada</b>
+          <span>Matrícula [MATRICULA] · SanCor Salud</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PLANES
+     ============================================================ -->
+<section class="section section--tint" id="planes">
+  <div class="wrap">
+    <div class="head head--center reveal">
+      <span class="eyebrow">Coberturas</span>
+      <h2>Planes según a quién tenés que cubrir</h2>
+      <p>Las tres situaciones más frecuentes. El plan exacto y el valor final dependen de tu edad, tu grupo familiar y tu zona: te lo paso por escrito, sin compromiso.</p>
+    </div>
+
+    <div class="grid grid--3 plans">
+
+      <article class="plan reveal">
+        <h3 class="plan__name">Individual</h3>
+        <p class="plan__for">Para una sola persona: monotributista, empleada en relación de dependencia o sin cobertura actual.</p>
+        <div class="plan__price">
+          <b>[PLAN — ej. 1000 / 2000]</b>
+          <span>desde $[VALOR] / mes</span>
+        </div>
+        <ul class="plan__list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Consultas y prácticas en cartilla de [ZONA]</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Internación en [CATEGORÍA DE HABITACIÓN]</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Descuento en medicamentos: [%]</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Urgencias y emergencias 24 h</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> [OTRO BENEFICIO DEL PLAN]</li>
+        </ul>
+        <a class="btn btn--ghost btn--block" href="#contacto">Pedir cotización</a>
+      </article>
+
+      <article class="plan plan--featured reveal">
+        <span class="plan__tag">Más elegido</span>
+        <h3 class="plan__name">Familiar</h3>
+        <p class="plan__for">Para pareja con hijos o grupo familiar. Se arma por integrante y suele ser el que mejor relación precio-cobertura tiene.</p>
+        <div class="plan__price">
+          <b>[PLAN — ej. 3000 / 4000]</b>
+          <span>desde $[VALOR] / mes por grupo</span>
+        </div>
+        <ul class="plan__list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Todo lo del plan individual</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Cobertura pediátrica y plan materno-infantil</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Odontología [ALCANCE]</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Cobertura en todo el país</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> [OTRO BENEFICIO DEL PLAN]</li>
+        </ul>
+        <a class="btn btn--block" href="#contacto">Pedir cotización</a>
+      </article>
+
+      <article class="plan reveal">
+        <h3 class="plan__name">Corporativo</h3>
+        <p class="plan__for">Para empresas, estudios y pymes que quieren dar cobertura a su equipo con condiciones diferenciales.</p>
+        <div class="plan__price">
+          <b>A medida</b>
+          <span>según cantidad de empleados</span>
+        </div>
+        <ul class="plan__list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Condiciones por convenio corporativo</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Derivación de aportes de sueldo</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Altas y bajas gestionadas por mí</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Un solo contacto para todo el equipo</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> [OTRO BENEFICIO DEL PLAN]</li>
+        </ul>
+        <a class="btn btn--ghost btn--block" href="#contacto">Hablemos de tu empresa</a>
+      </article>
+
+    </div>
+
+    <p class="note reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-5M12 8h.01"/></svg>
+      <span>Los nombres de plan, coberturas y valores son referenciales y están sujetos a las condiciones vigentes de SanCor Salud al momento de la contratación. Las carencias, los períodos de espera y la declaración jurada de salud aplican según la normativa de la Superintendencia de Servicios de Salud.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     BENEFICIOS
+     ============================================================ -->
+<section class="section" id="beneficios">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Por qué conmigo</span>
+      <h2>Contratar por tu cuenta y contratar asesorada cuesta lo mismo</h2>
+      <p>La diferencia está en lo que pasa después: cuando hay que autorizar una práctica, sumar un integrante o entender por qué rechazaron algo.</p>
+    </div>
+
+    <div class="grid grid--4">
+      <article class="card reveal">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+        <h3>Sin costo para vos</h3>
+        <p>Mi trabajo lo paga la compañía, no el afiliado. Pagás exactamente la misma cuota que si contrataras solo, con alguien que te acompaña.</p>
+      </article>
+
+      <article class="card reveal">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M21 12v6a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3h9"/></svg></span>
+        <h3>Comparación honesta</h3>
+        <p>Te muestro qué cubre y qué no cubre cada plan antes de firmar. Si el plan más caro no te sirve, te lo digo.</p>
+      </article>
+
+      <article class="card reveal">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M8 2v4M16 2v4M3 10h18"/><path d="M9 15l2 2 4-4"/></svg></span>
+        <h3>Trámite resuelto</h3>
+        <p>Formularios, declaración jurada, derivación de aportes y seguimiento del alta. Vos solo firmás y mandás la documentación.</p>
+      </article>
+
+      <article class="card reveal">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a3 3 0 0 1-3 3H8l-5 4V6a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3z"/><path d="M8 10h8M8 14h5"/></svg></span>
+        <h3>Post-venta real</h3>
+        <p>Seguís teniendo mi WhatsApp después del alta. Autorizaciones, reintegros, cambios de plan o bajas: me escribís a mí, no a un 0800.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROCESO
+     ============================================================ -->
+<section class="section section--soft" id="proceso">
+  <div class="wrap">
+    <div class="head head--center reveal">
+      <span class="eyebrow">Cómo trabajo</span>
+      <h2>Tres pasos, sin vueltas</h2>
+      <p>Desde el primer mensaje hasta tener la credencial activa suelen pasar [X] días hábiles.</p>
+    </div>
+
+    <div class="steps">
+      <article class="step reveal">
+        <h3>Charlamos 15 minutos</h3>
+        <p>Por WhatsApp o llamada. Me contás quiénes se afilian, edades, si tenés aportes de sueldo y qué prestadores usás hoy.</p>
+      </article>
+      <article class="step reveal">
+        <h3>Te mando la propuesta</h3>
+        <p>Dos o tres opciones concretas por escrito, con valor final, qué incluye cada una y las carencias que aplican. Sin letra chica.</p>
+      </article>
+      <article class="step reveal">
+        <h3>Gestiono el alta</h3>
+        <p>Armo la documentación, presento la solicitud y te aviso cuando la credencial está activa. Después quedo como tu contacto.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TESTIMONIOS
+     ============================================================ -->
+<section class="section" id="opiniones">
+  <div class="wrap">
+    <div class="head head--center reveal">
+      <span class="eyebrow">Opiniones</span>
+      <h2>Lo que dicen las familias que asesoré</h2>
+      <p>Testimonios reales de afiliados. Reemplazá el contenido de abajo por los que tengas y pedí autorización antes de publicar nombre y foto.</p>
+    </div>
+
+    <div class="grid grid--3">
+      <article class="quote reveal">
+        <div class="quote__stars" role="img" aria-label="5 de 5 estrellas">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z"/></svg>
+        </div>
+        <p>[TESTIMONIO 1 — qué duda tenía la persona, qué resolvió y cómo fue la experiencia. 2 o 3 oraciones, en las palabras del afiliado.]</p>
+        <footer>
+          <span class="avatar" aria-hidden="true">[A]</span>
+          <span><b>[NOMBRE Y APELLIDO]</b><span>Plan familiar · [CIUDAD]</span></span>
+        </footer>
+      </article>
+
+      <article class="quote reveal">
+        <div class="quote__stars" role="img" aria-label="5 de 5 estrellas">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z"/></svg>
+        </div>
+        <p>[TESTIMONIO 2 — idealmente sobre la gestión de un trámite o una autorización resuelta después del alta.]</p>
+        <footer>
+          <span class="avatar" aria-hidden="true">[B]</span>
+          <span><b>[NOMBRE Y APELLIDO]</b><span>Plan individual · [CIUDAD]</span></span>
+        </footer>
+      </article>
+
+      <article class="quote reveal">
+        <div class="quote__stars" role="img" aria-label="5 de 5 estrellas">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z"/></svg>
+        </div>
+        <p>[TESTIMONIO 3 — si tenés uno corporativo, va acá: sirve como prueba social para el plan empresa.]</p>
+        <footer>
+          <span class="avatar" aria-hidden="true">[C]</span>
+          <span><b>[NOMBRE Y APELLIDO]</b><span>Plan corporativo · [EMPRESA]</span></span>
+        </footer>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section class="section section--tint" id="faq">
+  <div class="wrap">
+    <div class="head head--center reveal">
+      <span class="eyebrow">Preguntas frecuentes</span>
+      <h2>Lo que más me preguntan</h2>
+      <p>Si tu duda no está acá, escribime: contesto el mismo día.</p>
+    </div>
+
+    <div class="faq" id="faqList">
+      <details class="reveal">
+        <summary>¿El asesoramiento tiene algún costo?</summary>
+        <div class="faq__body">No. Mi trabajo lo remunera la compañía, no vos. Pagás la misma cuota que si contrataras por tu cuenta, con la diferencia de tener alguien que te acompaña antes y después del alta.</div>
+      </details>
+
+      <details class="reveal">
+        <summary>¿Puedo derivar los aportes de mi sueldo?</summary>
+        <div class="faq__body">Sí, si estás en relación de dependencia o sos monotributista, podés derivar tus aportes y descontarlos de la cuota. El trámite de opción de cambio se hace ante tu obra social y la Superintendencia de Servicios de Salud; yo te armo la documentación y hago el seguimiento. [AJUSTAR según el proceso vigente.]</div>
+      </details>
+
+      <details class="reveal">
+        <summary>Tengo una preexistencia, ¿me pueden rechazar?</summary>
+        <div class="faq__body">Toda preexistencia se declara en la declaración jurada de salud al momento de la solicitud. Según el caso, puede haber un valor diferencial autorizado por la Superintendencia de Servicios de Salud o períodos de espera específicos. Lo importante: declararla siempre. Ocultarla es el motivo más común de rechazo de cobertura después. [COMPLETAR con el criterio vigente.]</div>
+      </details>
+
+      <details class="reveal">
+        <summary>¿Cuánto tardan las carencias?</summary>
+        <div class="faq__body">Los períodos de carencia varían según la práctica y el plan contratado. Antes de que firmes te paso el detalle por escrito de qué está disponible desde el día uno y qué tiene espera. [COMPLETAR con los plazos vigentes por tipo de prestación.]</div>
+      </details>
+
+      <details class="reveal">
+        <summary>¿Qué documentación necesito para darme de alta?</summary>
+        <div class="faq__body">En general: DNI de todos los integrantes, constancia de CUIL, últimos recibos de sueldo o constancia de monotributo si derivás aportes, y la declaración jurada de salud completa. [AJUSTAR al requerimiento actual.] Te paso el checklist exacto cuando definimos el plan.</div>
+      </details>
+
+      <details class="reveal">
+        <summary>¿Atendés solo en [ZONA]?</summary>
+        <div class="faq__body">Trabajo principalmente en [ZONA], pero la cobertura de SanCor Salud es nacional y puedo asesorarte desde cualquier punto del país por videollamada o WhatsApp. Lo que sí conviene revisar es la cartilla de prestadores de tu localidad antes de elegir el plan.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACTO
+     ============================================================ -->
+<section class="section contact" id="contacto">
+  <div class="wrap contact__grid">
+
+    <div class="reveal">
+      <span class="eyebrow">Contacto</span>
+      <h2>Contame tu situación y te paso una propuesta concreta</h2>
+      <p class="contact__lead">Sin compromiso y sin costo. Si después de ver los números decidís que no, no pasa nada.</p>
+
+      <div class="channels">
+        <a class="channel" href="https://wa.me/[WHATSAPP]?text=Hola%20[NOMBRE%20ASESORA]%2C%20quiero%20asesoramiento%20sobre%20planes%20de%20SanCor%20Salud" target="_blank" rel="noopener">
+          <span class="channel__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38c1.45.79 3.08 1.21 4.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.43 12.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.48-1.76-1.65-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/></svg></span>
+          <span><b>WhatsApp</b><span>[+54 9 ... ] · lun a vie de [HORARIO]</span></span>
+        </a>
+
+        <a class="channel" href="tel:+54[TELEFONO]">
+          <span class="channel__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 1.9.6 2.8a2 2 0 0 1-.5 2.1L8.1 9.8a16 16 0 0 0 6 6l1.2-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.8.6a2 2 0 0 1 1.8 2z"/></svg></span>
+          <span><b>Teléfono</b><span>[+54 ... ]</span></span>
+        </a>
+
+        <a class="channel" href="mailto:[EMAIL]">
+          <span class="channel__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m3 6 9 6 9-6"/></svg></span>
+          <span><b>Email</b><span>[EMAIL]</span></span>
+        </a>
+
+        <a class="channel" href="https://instagram.com/[USUARIO]" target="_blank" rel="noopener">
+          <span class="channel__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.8"/><path d="M17.5 6.5h.01"/></svg></span>
+          <span><b>Instagram</b><span>@[USUARIO]</span></span>
+        </a>
+      </div>
+    </div>
+
+    <!-- action: reemplazar por el endpoint real (Formspree, Getform, tu API, etc.) -->
+    <form class="form reveal" id="leadForm" action="[FORM_ENDPOINT]" method="POST" novalidate>
+      <h3>Pedí tu cotización</h3>
+      <p>Te respondo dentro del día hábil.</p>
+
+      <div class="row2">
+        <div class="field">
+          <label for="f-nombre">Nombre y apellido <span class="req">*</span></label>
+          <input id="f-nombre" name="nombre" type="text" autocomplete="name" placeholder="Tu nombre" required>
+          <span class="err">Necesito tu nombre para contactarte.</span>
+        </div>
+        <div class="field">
+          <label for="f-tel">WhatsApp <span class="req">*</span></label>
+          <input id="f-tel" name="telefono" type="tel" inputmode="tel" autocomplete="tel" placeholder="11 5555 5555" required>
+          <span class="err">Ingresá un teléfono válido (mínimo 8 dígitos).</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="f-email">Email</label>
+        <input id="f-email" name="email" type="email" autocomplete="email" placeholder="vos@email.com">
+        <span class="err">Revisá el formato del email.</span>
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <label for="f-plan">Me interesa</label>
+          <select id="f-plan" name="plan">
+            <option value="individual">Plan individual</option>
+            <option value="familiar" selected>Plan familiar</option>
+            <option value="corporativo">Plan corporativo</option>
+            <option value="no-se">Todavía no sé</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-integrantes">Integrantes a cubrir</label>
+          <select id="f-integrantes" name="integrantes">
+            <option>1</option><option>2</option><option>3</option>
+            <option>4</option><option>5 o más</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="f-msg">Contame un poco más</label>
+        <textarea id="f-msg" name="mensaje" placeholder="Edades del grupo, si tenés aportes de sueldo, prestadores que usás hoy…"></textarea>
+      </div>
+
+      <!-- honeypot anti-spam: un bot lo completa, una persona no lo ve -->
+      <div class="hp" aria-hidden="true">
+        <label for="f-empresa-hp">No completar</label>
+        <input id="f-empresa-hp" name="empresa_hp" type="text" tabindex="-1" autocomplete="off">
+      </div>
+      <input type="hidden" name="_origen" value="landing">
+
+      <label class="consent" for="f-consent">
+        <input id="f-consent" name="consentimiento" type="checkbox" required>
+        <span>Autorizo a [NOMBRE ASESORA] a contactarme por los datos ingresados. Ley 25.326 de Protección de Datos Personales.</span>
+      </label>
+
+      <button class="btn btn--block" type="submit" id="submitBtn">Quiero mi cotización</button>
+      <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+    </form>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <a class="footer__brand" href="#inicio">
+        <span class="brand__mark" aria-hidden="true">[NA]</span>
+        <span class="brand__txt">
+          <b>[NOMBRE ASESORA]</b>
+          <span>Asesora SanCor Salud · Matrícula [MATRICULA]</span>
+        </span>
+      </a>
+      <nav class="footer__nav" aria-label="Navegación del pie">
+        <a href="#planes">Planes</a>
+        <a href="#beneficios">Por qué conmigo</a>
+        <a href="#proceso">Cómo trabajo</a>
+        <a href="#faq">Preguntas</a>
+        <a href="#contacto">Contacto</a>
+        <a href="/politica-de-privacidad">Privacidad</a>
+      </nav>
+    </div>
+
+    <div class="footer__legal">
+      <p><strong>Sitio personal de asesoramiento comercial.</strong> No es el sitio oficial de SanCor Salud. SanCor Salud® es una marca registrada de su titular; su sitio oficial es <a href="https://www.sancorsalud.com.ar" target="_blank" rel="noopener nofollow">sancorsalud.com.ar</a>.</p>
+      <p>La información de planes, coberturas y valores es referencial y no constituye oferta contractual. Las condiciones definitivas surgen de la solicitud de afiliación y del contrato vigente. Entidad inscripta en el R.N.E.M.P. de la Superintendencia de Servicios de Salud — [N° DE INSCRIPCIÓN]. Ante cualquier duda: <a href="https://www.argentina.gob.ar/sssalud" target="_blank" rel="noopener nofollow">Superintendencia de Servicios de Salud</a> — 0800-222-SALUD (72583).</p>
+      <p>© <span id="year">2026</span> [NOMBRE ASESORA]. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<a class="fab" id="fab" href="https://wa.me/[WHATSAPP]?text=Hola%20[NOMBRE%20ASESORA]%2C%20quiero%20asesoramiento%20sobre%20planes%20de%20SanCor%20Salud" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38c1.45.79 3.08 1.21 4.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.43 12.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.48-1.76-1.65-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/></svg>
+  <span>WhatsApp</span>
+</a>
+
+<script>
+(() => {
+  'use strict';
+
+  /* ---------- Header: sombra al hacer scroll + FAB ---------- */
+  const header = document.getElementById('header');
+  const fab    = document.getElementById('fab');
+  let ticking  = false;
+
+  const onScroll = () => {
+    const y = window.scrollY;
+    header.classList.toggle('is-stuck', y > 8);
+    fab.classList.toggle('is-visible', y > 600);
+    ticking = false;
+  };
+  window.addEventListener('scroll', () => {
+    if (!ticking) { requestAnimationFrame(onScroll); ticking = true; }
+  }, { passive: true });
+  onScroll();
+
+  /* ---------- Menú mobile ---------- */
+  const toggle = document.getElementById('navToggle');
+  const links  = document.getElementById('navLinks');
+
+  const closeNav = () => {
+    links.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Abrir menú');
+  };
+
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+  });
+
+  links.addEventListener('click', e => { if (e.target.closest('a')) closeNav(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNav(); });
+  document.addEventListener('click', e => {
+    if (!links.contains(e.target) && !toggle.contains(e.target)) closeNav();
+  });
+
+  /* ---------- FAQ: un acordeón abierto por vez ---------- */
+  const faq = document.getElementById('faqList');
+  faq.addEventListener('toggle', e => {
+    const d = e.target;
+    if (d.tagName === 'DETAILS' && d.open) {
+      faq.querySelectorAll('details[open]').forEach(o => { if (o !== d) o.open = false; });
+    }
+  }, true);
+
+  /* ---------- Reveal on scroll ---------- */
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const items   = document.querySelectorAll('.reveal');
+
+  if (reduced || !('IntersectionObserver' in window)) {
+    items.forEach(el => el.classList.add('is-in'));
+  } else {
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry, i) => {
+        if (!entry.isIntersecting) return;
+        setTimeout(() => entry.target.classList.add('is-in'), i * 70);
+        obs.unobserve(entry.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    items.forEach(el => io.observe(el));
+  }
+
+  /* ---------- Formulario: validación + envío ---------- */
+  const form    = document.getElementById('leadForm');
+  const status  = document.getElementById('formStatus');
+  const btn     = document.getElementById('submitBtn');
+  const digits  = v => (v.match(/\d/g) || []).length;
+
+  const rules = {
+    nombre:   v => v.trim().length >= 2,
+    telefono: v => digits(v) >= 8,
+    email:    v => v.trim() === '' || /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()),
+  };
+
+  const setField = (input, ok) => {
+    input.closest('.field').classList.toggle('is-invalid', !ok);
+    input.setAttribute('aria-invalid', String(!ok));
+    return ok;
+  };
+
+  const validate = () => Object.entries(rules).every(([name, test]) => {
+    const input = form.elements[name];
+    return setField(input, test(input.value));
+  });
+
+  Object.keys(rules).forEach(name => {
+    const input = form.elements[name];
+    input.addEventListener('blur',  () => setField(input, rules[name](input.value)));
+    input.addEventListener('input', () => {
+      if (input.closest('.field').classList.contains('is-invalid')) {
+        setField(input, rules[name](input.value));
+      }
+    });
+  });
+
+  const show = (msg, ok) => {
+    status.textContent = msg;
+    status.className = 'form__status ' + (ok ? 'is-ok' : 'is-err');
+  };
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    // honeypot: si viene lleno, cortamos en silencio
+    if (form.elements.empresa_hp.value !== '') return;
+
+    if (!validate()) {
+      show('Revisá los campos marcados y volvé a intentar.', false);
+      form.querySelector('.field.is-invalid input')?.focus();
+      return;
+    }
+    if (!form.elements.consentimiento.checked) {
+      show('Necesito tu autorización para contactarte.', false);
+      return;
+    }
+
+    const endpoint = form.getAttribute('action');
+    if (!endpoint || endpoint.startsWith('[')) {
+      show('Formulario en modo demo: configurá el endpoint en el atributo action. Mientras tanto, escribime por WhatsApp.', false);
+      return;
+    }
+
+    const original = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Enviando…';
+    status.className = 'form__status';
+
+    try {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(form),
+      });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      form.reset();
+      show('¡Listo! Recibí tu consulta y te escribo dentro del día hábil.', true);
+    } catch (err) {
+      show('No se pudo enviar. Probá de nuevo o escribime directo por WhatsApp.', false);
+    } finally {
+      btn.disabled = false;
+      btn.textContent = original;
+    }
+  });
+
+  /* ---------- Año del footer ---------- */
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
