@@ -23,10 +23,10 @@ The current page is complete but repeats similar card layouts and uses a generic
   - Work-unit commit: df7a6ea4ce1b7e5b85c6e9cc5e3067418a16196d (205 authored lines).
 
 ## Delivery and review
-Forecast: approximately 250–350 authored changed lines including tests and tracking. Strategy: ask-on-risk; preserve previously selected feature-branch-chain if slices become necessary. One coherent visual work unit on a local feature branch. RDD on (global); native reviewed boundary remains 0b1cb2a, with previous consultation slice pending under budget. Assess the combined pending range after the commit; do not claim approval without terminal native evidence. Candidate consent remains user-owned.
+Forecast: approximately 250–350 authored changed lines including tests and tracking. Strategy: ask-on-risk; preserve previously selected feature-branch-chain if slices become necessary. One coherent visual work unit on a local feature branch. RDD on (global). User granted review of the combined pending range since 0b1cb2a (medium, 520 lines, 6 files). Native reliability review approved without findings or correction; exact acknowledgement succeeded and burned authority for review-9fd326a4139c8580. Reviewed boundary advances to d0e86db; this passive closure note is outside that frozen candidate.
 
 ## Progress
-T1 implementation and functional checks complete; parent repeated the full suite successfully and inspected mobile/desktop screenshots. Work-unit committed; native review consent remains pending.
+T1 implementation and functional checks complete; parent repeated the full suite successfully and inspected mobile/desktop screenshots. Work-unit committed; native review approved and acknowledged.
 - Replaced the rotated monogram/orbits with an upright, numbered decision guide: zone, family and priorities. Kept the explicit demonstration/quotation distinction.
 - Added local serif accents to the hero and guide numbering; system fonts remain the body stack with no remote fonts or new requests.
 - Broke the repeated card rhythm into white comparison cards, a split advisor narrative with divider-led principles, a pale-blue numbered process and a split FAQ layout. Mobile stacks retain logical reading order.
@@ -36,7 +36,7 @@ T1 implementation and functional checks complete; parent repeated the full suite
 - New regressions check upright guide/no decorative monogram or orbit, all three guide criteria fitting the viewport, desktop side-by-side narrative/FAQ, and mobile heading-before-content order.
 - `git diff --check`: passed. Screenshots `/tmp/karina-polish-375.png` and `/tmp/karina-polish-1440.png` inspected; no clipping or overlap observed. They show the tested open FAQ and completed local guide states.
 - Authored source/test diff: 163 lines (129 additions, 34 deletions), plus this 42-line new tracker: 205 authored lines total; the smaller coherent implementation meets the full design scope. Existing `.atl` modifications remain untouched.
-- Worker performed no staging or commit; parent committed the verified work unit. No native review, push, PR or publication performed. Engram mirror is updated and read back by the parent before delivery.
+- Worker performed no staging or commit; parent committed the verified work unit. Native review completed by the parent; no push, PR or publication performed. Engram mirror is updated and read back by the parent before delivery.
 
 ## Next step
-Native assessment against 0b1cb2a: medium, 520 changed lines, review_due=true (slice_budget_reached). Await candidate consent through the exact returned preflight. Parent spot-check: node tests/landing.spec.cjs and git diff --check passed; 375/1440px screenshots inspected. Do not mark native review approved without terminal evidence.
+No implementation or review work remains. Publishing, remote push and real contact integration require separate authorization. Reviewer inspected immutable patches only; functional tests were executed previously by writer and parent, not rerun during review. Existing machine-specific browser-test dependency remains a nonblocking portability limitation.
