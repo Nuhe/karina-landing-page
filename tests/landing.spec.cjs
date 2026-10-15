@@ -43,6 +43,25 @@ const server = http.createServer((request, response) => {
       })), `form and controls must fit without clipping at ${width}`);
       assert.deepEqual(await page.locator('a[href^="#"]').evaluateAll(anchors => anchors.filter(anchor => !document.getElementById(anchor.hash.slice(1))).map(anchor => anchor.hash)), []);
       assert.ok(await page.locator('.demo-notice').isVisible());
+      assert.equal(await page.locator('.advisor-visual__list li').count(), 3, 'advisor guide keeps three decision criteria');
+      assert.equal(await page.locator('.advisor-visual__card').evaluate(element => getComputedStyle(element).transform), 'none', 'decision guide stays upright and readable');
+      assert.equal(await page.locator('.advisor-visual__orbit, .advisor-visual__monogram').count(), 0, 'hero uses a decision guide rather than decorative monograms');
+      assert.ok(await page.locator('.advisor-visual__list li').evaluateAll(elements => elements.every(element => {
+        const bounds = element.getBoundingClientRect();
+        return bounds.left >= 0 && bounds.right <= innerWidth && element.scrollWidth <= element.clientWidth;
+      })), `decision criteria fit at ${width}`);
+      const aboutHeading = await page.locator('#beneficios .head').boundingBox();
+      const aboutPrinciples = await page.locator('#beneficios .grid').boundingBox();
+      const faqHeading = await page.locator('#faq .head').boundingBox();
+      const faqItems = await page.locator('#faqList').boundingBox();
+      if (width > 900) {
+        assert.ok(aboutHeading.x + aboutHeading.width <= aboutPrinciples.x, 'desktop advisor narrative sits beside principles');
+        assert.ok(faqHeading.x + faqHeading.width <= faqItems.x, 'desktop questions have an editorial side heading');
+      } else {
+        assert.ok(aboutHeading.y + aboutHeading.height <= aboutPrinciples.y, 'mobile advisor narrative precedes principles');
+        assert.ok(faqHeading.y + faqHeading.height <= faqItems.y, 'mobile question heading precedes accordion');
+      }
+
       if (width > 900) assert.equal(await page.locator('.nav__cta-mobile').isVisible(), false);
       assert.ok((await page.locator('.hero h1').boundingBox()).y < (await page.locator('.hero__card').boundingBox()).y || width > 900);
       assert.equal(await page.evaluate(() => getComputedStyle(document.documentElement).scrollBehavior), 'auto');
@@ -81,7 +100,7 @@ const server = http.createServer((request, response) => {
       assert.deepEqual(errors, [], `browser errors at ${width}`);
       await page.evaluate(() => scrollTo(0, 0));
       if (width !== 768) {
-        const screenshot = `/tmp/karina-blue-${width}.png`;
+        const screenshot = `/tmp/karina-polish-${width}.png`;
         await page.screenshot({ path: screenshot, fullPage: true });
         console.log(`Screenshot: ${screenshot}`);
       }
