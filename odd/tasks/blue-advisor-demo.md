@@ -34,3 +34,8 @@ Implementation complete locally. Principal skill general defaults applied withou
 
 ## Next step
 Prepare the three local slices with tests alongside behavior, measure actual boundaries and record commits. Resolve native inventory, candidate consent and review using exact provider transitions. T1 remains unchecked until all slice commits and applicable review outcomes are recorded.
+
+## Slice A preparation
+Preserved original source blob: `778c21f5288975660d0cedd32b28ae7eb9288714`; exact final source blob: `7a58afabae1aeda42eaad03233506f4032f0b44e`; exact final tests blob: `6c0e7fbd777e948a53433b70d61d7aef55e98ac2`. Restore final bytes with `git cat-file blob <hash>` only when preparing the final slice.
+Slice A: `feat/blue-advisor-demo-presentation` from tracker `6a8e4e5`; source +104/-196, scoped tests +67, tracking +5/-0: 372 authored lines. RED: `node tests/landing.spec.cjs` on original source failed hero palette (transparent vs blue); GREEN: same command passes 320/375/768/1440px hero/nav bounds, palette, anchors, keyboard/reduced-motion and console. `git diff --check` passes. Final source/tests remain recoverable from blobs above.
+Scope limitation: inherited original plan cards still overflow at 320px (document 804px, hero 320px); global/form/FAQ/privacy assertions deferred to responsible B/C slices. A is integration-only, not publishable; full T1 remains unchecked. Scoped screenshots use `/tmp/karina-blue-presentation-*.png`; first run overwrote earlier `/tmp/karina-blue-*.png` with intermediate A. No commit, staging or review performed.

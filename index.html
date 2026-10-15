@@ -4,49 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-<!-- ============================================================
-     SEO / SOCIAL  —  reemplazar los [PLACEHOLDERS]
-     ============================================================ -->
-<title>[NOMBRE ASESORA] · Asesora de SanCor Salud en [ZONA]</title>
-<meta name="description" content="Asesoramiento sin cargo para elegir tu plan de SanCor Salud en [ZONA]. Comparación de planes, gestión del alta y seguimiento posterior. Escribime por WhatsApp.">
-<link rel="canonical" href="https://[DOMINIO]/">
+<title>Karina · Asesoramiento en planes de salud</title>
+<meta name="description" content="Conocé a Karina y encontrá una guía clara para comparar planes de salud: cartilla, presupuesto y necesidades de tu familia. Sitio de demostración.">
 <meta name="theme-color" content="#1E5A9C">
 <meta name="color-scheme" content="light">
-<meta name="robots" content="index, follow, max-image-preview:large">
-
+<meta name="robots" content="noindex, nofollow">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_AR">
-<meta property="og:site_name" content="[NOMBRE ASESORA] — Asesora SanCor Salud">
-<meta property="og:title" content="[NOMBRE ASESORA] · Asesora de SanCor Salud en [ZONA]">
-<meta property="og:description" content="Te ayudo a elegir el plan de SanCor Salud que realmente te sirve. Asesoramiento sin cargo.">
-<meta property="og:url" content="https://[DOMINIO]/">
-<meta property="og:image" content="https://[DOMINIO]/og-image.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "InsuranceAgency",
-  "name": "[NOMBRE ASESORA] — Asesora de SanCor Salud",
-  "description": "Asesoramiento sin cargo en planes de salud de SanCor Salud.",
-  "url": "https://[DOMINIO]/",
-  "telephone": "+54 9 [TELEFONO]",
-  "email": "[EMAIL]",
-  "areaServed": "[ZONA]",
-  "priceRange": "$$",
-  "address": { "@type": "PostalAddress", "addressLocality": "[CIUDAD]", "addressRegion": "[PROVINCIA]", "addressCountry": "AR" },
-  "employee": { "@type": "Person", "name": "[NOMBRE ASESORA]", "jobTitle": "Asesora comercial matriculada", "identifier": "Matrícula [MATRICULA]" }
-}
-</script>
+<meta property="og:title" content="Karina · Tu próximo plan, con más claridad">
+<meta property="og:description" content="Una guía para elegir cobertura de salud con información a mano. Sitio de demostración.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%231E5A9C'/%3E%3Ctext x='20' y='29' text-anchor='middle' font-size='27' fill='white'%3EK%3C/text%3E%3C/svg%3E">
 
 <style>
 /* ============================================================
@@ -213,7 +180,7 @@ ul{list-style:none;padding:0}
 .btn--outline-invert:hover{--btn-bg:rgba(255,255,255,.12);--btn-bd:rgba(255,255,255,.7);--btn-fg:var(--ink-invert)}
 
 .btn--block{width:100%}
-.btn--sm{padding:.6rem 1.15rem;min-height:42px;font-size:var(--t-xs)}
+.btn--sm{padding:.6rem 1.15rem;min-height:44px;font-size:var(--t-xs)}
 
 /* ============================================================
    5. HEADER
@@ -241,12 +208,12 @@ ul{list-style:none;padding:0}
 
 .nav__links{display:flex;align-items:center;gap:.25rem}
 .nav__links a{
-  padding:.5rem .85rem;border-radius:var(--r-full);
+  display:inline-flex;align-items:center;min-height:44px;padding:.5rem .85rem;border-radius:var(--r-full);
   font-size:var(--t-sm);font-weight:500;color:var(--ink-muted);text-decoration:none;
   transition:color .18s var(--ease),background .18s var(--ease);
 }
 .nav__links a:hover{color:var(--brand);background:var(--blue-50)}
-.nav__cta-mobile{display:none}
+.nav__links .nav__cta-mobile{display:none}
 
 .nav__toggle{
   display:none;width:46px;height:46px;flex:none;
@@ -268,30 +235,31 @@ ul{list-style:none;padding:0}
     background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
     padding:.75rem;box-shadow:var(--sh-lg);
     opacity:0;visibility:hidden;transform:translateY(-8px);
-    transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s;
+    transition:opacity .2s var(--ease),transform .2s var(--ease);
   }
   .nav__links.is-open{opacity:1;visibility:visible;transform:translateY(0)}
   .nav__links a{padding:.8rem 1rem;border-radius:var(--r-sm);font-size:var(--t-base)}
-  .nav__cta-mobile{display:inline-flex;margin-top:.4rem}
+  .nav__links .nav__cta-mobile{display:inline-flex;margin-top:.4rem}
 }
 
 /* ============================================================
    6. HERO
    ============================================================ */
-.hero{position:relative;padding-block:clamp(3rem,2rem + 5vw,6rem) var(--section-y);overflow:hidden}
+.hero{background:var(--brand);color:var(--ink-invert);position:relative;padding-block:clamp(3rem,2rem + 5vw,6rem) var(--section-y);overflow:hidden}
 .hero::before{
-  content:"";position:absolute;inset:0;z-index:-1;
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.18;
   background:
     radial-gradient(760px 520px at 88% -10%, var(--blue-100) 0%, transparent 62%),
     radial-gradient(620px 460px at 4% 8%, var(--blue-50) 0%, transparent 60%);
 }
 .hero__grid{
-  display:grid;grid-template-columns:1.05fr .95fr;
+  position:relative;display:grid;grid-template-columns:1.05fr .95fr;
   gap:clamp(2rem,1.5rem + 4vw,4.5rem);align-items:center;
 }
 .hero h1{font-size:var(--t-3xl);letter-spacing:-.035em}
-.hero h1 em{font-style:normal;color:var(--brand)}
-.hero__lead{margin-top:1.25rem;font-size:var(--t-md);color:var(--ink-muted);max-width:52ch}
+.hero h1 em{font-style:normal;color:var(--blue-100)}
+.hero .eyebrow{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.3);color:var(--ink-invert)}
+.hero__lead{margin-top:1.25rem;font-size:var(--t-md);color:var(--ink-invert-muted);max-width:52ch}
 .hero__actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
 
 .trust{display:flex;flex-wrap:wrap;gap:.5rem .65rem;margin-top:2.25rem;padding-top:1.75rem;border-top:1px solid var(--line-strong)}
@@ -303,43 +271,35 @@ ul{list-style:none;padding:0}
 }
 .trust svg{width:15px;height:15px;color:var(--accent);flex:none}
 
-/* tarjeta de foto */
+/* Abstract advisor visual; no invented portrait or credentials. */
 .hero__card{position:relative}
-.photo{
-  position:relative;aspect-ratio:4/5;
-  border-radius:var(--r-xl);overflow:hidden;
-  background:linear-gradient(160deg,var(--blue-100),var(--blue-300));
-  border:1px solid rgba(255,255,255,.7);box-shadow:var(--sh-lg);
+.advisor-visual{
+  position:relative;min-height:430px;display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(255,255,255,.28);border-radius:var(--r-xl);
+  background:rgba(255,255,255,.06);overflow:hidden;padding:2rem;
 }
-.photo img{width:100%;height:100%;object-fit:cover}
-.photo__ph{
-  position:absolute;inset:0;display:grid;place-content:center;gap:.6rem;justify-items:center;
-  color:var(--blue-700);text-align:center;padding:2rem;
+.advisor-visual__orbit{position:absolute;inset:0;width:100%;height:100%;color:var(--blue-300);opacity:.65}
+.advisor-visual__card{
+  position:relative;width:100%;max-width:340px;background:var(--surface);color:var(--ink);
+  border-radius:var(--r-lg);padding:2rem;box-shadow:var(--sh-lg);transform:rotate(-3deg);
 }
-.photo__ph svg{width:64px;height:64px;opacity:.65}
-.photo__ph span{font-size:var(--t-sm);font-weight:600;max-width:24ch}
-
-.badge-float{
-  position:absolute;left:-14px;bottom:28px;
-  display:flex;align-items:center;gap:.75rem;
-  background:var(--surface);border:1px solid var(--line);
-  border-radius:var(--r-lg);padding:.9rem 1.15rem;box-shadow:var(--sh-md);
-  max-width:min(300px,86%);
+.advisor-visual__monogram{
+  display:grid;place-items:center;width:64px;height:64px;border-radius:20px;
+  background:var(--blue-50);color:var(--brand);font-size:2rem;font-weight:700;margin-bottom:1.5rem;
 }
-.badge-float__ico{
-  width:42px;height:42px;flex:none;display:grid;place-items:center;
-  background:var(--blue-50);color:var(--brand);border-radius:13px;
-}
-.badge-float__ico svg{width:21px;height:21px}
-.badge-float b{display:block;font-size:var(--t-sm);letter-spacing:-.01em}
-.badge-float span{display:block;font-size:var(--t-xs);color:var(--ink-muted);line-height:1.4}
+.advisor-visual__card h2{font-size:var(--t-xl);margin-bottom:.8rem}
+.advisor-visual__card p{font-size:var(--t-sm);color:var(--ink-muted)}
+.advisor-visual__list{display:grid;gap:.7rem;margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--line)}
+.advisor-visual__list li{display:flex;justify-content:space-between;font-size:var(--t-sm);font-weight:600}
+.advisor-visual__list span{color:var(--brand)}
+.demo-notice{font-size:var(--t-xs);color:var(--ink-invert-muted);margin-top:1.5rem;max-width:58ch}
+.hero .trust{border-top-color:rgba(255,255,255,.25);margin-top:1.75rem;padding-top:1.5rem}
+.hero .trust li{background:transparent;border-color:rgba(255,255,255,.3);color:var(--ink-invert)}
 
 @media (max-width:900px){
   .hero__grid{grid-template-columns:1fr;gap:2.5rem}
-  .hero__card{order:-1;max-width:420px;margin-inline:auto;width:100%}
-  .photo{aspect-ratio:4/3.4}
-  .badge-float{left:50%;transform:translateX(-50%);bottom:-26px;width:max-content;max-width:94%}
-  .hero__card{margin-bottom:2.25rem}
+  .hero__card{max-width:480px;margin-inline:auto;width:100%}
+  .advisor-visual{min-height:360px}
   .trust{justify-content:flex-start}
 }
 
@@ -581,7 +541,7 @@ ul{list-style:none;padding:0}
 /* ============================================================
    14. REVEAL ON SCROLL
    ============================================================ */
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.reveal{opacity:1;transform:none;transition:opacity .6s var(--ease),transform .6s var(--ease)}
 .reveal.is-in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
 
@@ -593,108 +553,78 @@ ul{list-style:none;padding:0}
   body{color:#000}
   .section{padding-block:1rem}
 }
+@media (max-width:900px){
+  html:not(.js) .nav{flex-wrap:wrap;padding-block:1rem}
+  html:not(.js) .nav__links{position:static;opacity:1;visibility:visible;transform:none;width:100%;box-shadow:none}
+  html:not(.js) .nav__toggle{display:none}
+}
+.contact .channel{min-height:72px}
+.form small{display:block;color:var(--ink-muted);font-size:var(--t-xs);margin-top:1rem}
+.site-footer .footer__nav a{display:inline-flex;align-items:center;min-height:44px}
 </style>
 </head>
 
 <body>
 <a class="skip" href="#main">Saltar al contenido</a>
-
-<!-- ============================================================
-     HEADER
-     ============================================================ -->
 <header class="site-header" id="header">
   <div class="wrap nav">
-    <a class="brand" href="#inicio" aria-label="Inicio">
-      <span class="brand__mark" aria-hidden="true">[NA]</span>
-      <span class="brand__txt">
-        <b>[NOMBRE ASESORA]</b>
-        <span>Asesora SanCor Salud</span>
-      </span>
+    <a class="brand" href="#inicio" aria-label="Karina, inicio">
+      <span class="brand__mark" aria-hidden="true">K</span>
+      <span class="brand__txt"><b>Karina</b><span>Asesoramiento en salud</span></span>
     </a>
-
-    <nav class="nav__links" id="navLinks" aria-label="Navegación principal">
-      <a href="#planes">Planes</a>
-      <a href="#beneficios">Por qué conmigo</a>
-      <a href="#proceso">Cómo trabajo</a>
-      <a href="#opiniones">Opiniones</a>
-      <a href="#faq">Preguntas</a>
-      <a class="btn btn--sm nav__cta-mobile" href="#contacto">Pedir asesoramiento</a>
-    </nav>
-
-    <a class="btn btn--sm nav__cta" href="https://wa.me/[WHATSAPP]?text=Hola%20[NOMBRE%20ASESORA]%2C%20quiero%20asesoramiento%20sobre%20planes%20de%20SanCor%20Salud" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.48-1.76-1.65-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38c1.45.79 3.08 1.21 4.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.13c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.16.83.84-3.08-.2-.32a8.2 8.2 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23z"/></svg>
-      WhatsApp
-    </a>
-
     <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Abrir menú">
-      <svg class="ico-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      <svg class="ico-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      <svg class="ico-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg class="ico-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
+    <nav class="nav__links" id="navLinks" aria-label="Navegación principal">
+      <a href="#planes">Opciones</a>
+      <a href="#beneficios">Sobre mí</a>
+      <a href="#proceso">Cómo funciona</a>
+      <a href="#faq">Preguntas</a>
+      <a class="nav__cta-mobile" href="#contacto">Preparar mi consulta</a>
+    </nav>
+    <a class="btn btn--sm nav__cta" href="#contacto">Preparar mi consulta <span aria-hidden="true">↗</span></a>
   </div>
 </header>
 
 <main id="main">
-
-<!-- ============================================================
-     HERO
-     ============================================================ -->
-<section class="hero" id="inicio">
+<section class="hero" id="inicio" aria-labelledby="hero-title">
   <div class="wrap hero__grid">
     <div>
-      <span class="eyebrow">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
-        Asesora matriculada · [ZONA]
-      </span>
-
-      <h1>Elegí tu plan de salud <em>con alguien que te explica todo</em> antes de firmar.</h1>
-
-      <p class="hero__lead">
-        Soy [NOMBRE ASESORA], asesora de SanCor Salud hace [AÑOS] años. Comparamos coberturas,
-        revisamos carencias y preexistencias, y armamos el plan que se ajusta a tu grupo familiar
-        y a tu presupuesto. El asesoramiento no tiene costo.
-      </p>
-
+      <span class="eyebrow">Decidir con información, vivir con tranquilidad</span>
+      <h1 id="hero-title">Tu próximo plan de salud, <em>con más claridad.</em></h1>
+      <p class="hero__lead">Soy Karina. Te ayudo a ordenar tus prioridades y entender qué comparar antes de elegir cobertura para vos o tu familia.</p>
       <div class="hero__actions">
-        <a class="btn" href="https://wa.me/[WHATSAPP]?text=Hola%20[NOMBRE%20ASESORA]%2C%20quiero%20asesoramiento%20sobre%20planes%20de%20SanCor%20Salud" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.48-1.76-1.65-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38c1.45.79 3.08 1.21 4.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.13c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.16.83.84-3.08-.2-.32a8.2 8.2 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23z"/></svg>
-          Escribime por WhatsApp
-        </a>
-        <a class="btn btn--ghost" href="#planes">Ver los planes</a>
+        <a class="btn btn--light" href="#contacto">Preparar mi consulta <span aria-hidden="true">↗</span></a>
+        <a class="btn btn--outline-invert" href="#planes">Explorar opciones</a>
       </div>
-
-      <ul class="trust">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> Asesoramiento sin cargo</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Matrícula [MATRICULA]</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Respuesta en el día</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg> [N] familias asesoradas</li>
+      <ul class="trust" aria-label="Qué vas a encontrar">
+        <li>Información abierta</li><li>Comparación clara</li><li>A tu ritmo</li>
       </ul>
+      <p class="demo-notice"><strong>Sitio de demostración.</strong> No es un sitio oficial de SanCor Salud ni acredita una vinculación comercial. El formulario no envía ni guarda datos.</p>
     </div>
-
-    <div class="hero__card">
-      <figure class="photo">
-        <!-- Reemplazar por la foto real:
-             <img src="/img/asesora.jpg" alt="Retrato de [NOMBRE ASESORA], asesora de SanCor Salud"
-                  width="800" height="1000" fetchpriority="high"> -->
-        <div class="photo__ph">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.8" cy="9.2" r="1.9"/><path d="M21 16l-5.5-5.5L4 21"/></svg>
-          <span>[FOTO DE LA ASESORA — vertical, 800×1000 px, formato .webp]</span>
-        </div>
-      </figure>
-
-      <div class="badge-float">
-        <span class="badge-float__ico" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-        </span>
-        <span>
-          <b>Asesora autorizada</b>
-          <span>Matrícula [MATRICULA] · SanCor Salud</span>
-        </span>
+    <div class="hero__card advisor-visual">
+      <svg class="advisor-visual__orbit" viewBox="0 0 480 480" fill="none" aria-hidden="true">
+        <circle cx="240" cy="240" r="210" stroke="currentColor"/>
+        <circle cx="240" cy="240" r="160" stroke="currentColor"/>
+        <path d="M0 240h480M240 0v480" stroke="currentColor" stroke-dasharray="4 12"/>
+        <circle cx="390" cy="94" r="12" fill="currentColor"/>
+        <circle cx="65" cy="350" r="7" fill="currentColor"/>
+      </svg>
+      <div class="advisor-visual__card">
+        <span class="advisor-visual__monogram" aria-hidden="true">K</span>
+        <h2>Primero vos.<br>Después, el plan.</h2>
+        <p>Una buena elección empieza por lo que importa en tu día a día.</p>
+        <ul class="advisor-visual__list">
+          <li>Tu zona <span aria-hidden="true">↗</span></li>
+          <li>Tu familia <span aria-hidden="true">↗</span></li>
+          <li>Tus prioridades <span aria-hidden="true">↗</span></li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================================================
      PLANES
      ============================================================ -->
 <section class="section section--tint" id="planes">
@@ -1082,16 +1012,14 @@ ul{list-style:none;padding:0}
 <script>
 (() => {
   'use strict';
+  document.documentElement.classList.add('js');
 
-  /* ---------- Header: sombra al hacer scroll + FAB ---------- */
   const header = document.getElementById('header');
-  const fab    = document.getElementById('fab');
-  let ticking  = false;
-
+  const fab = document.getElementById('fab');
+  let ticking = false;
   const onScroll = () => {
-    const y = window.scrollY;
-    header.classList.toggle('is-stuck', y > 8);
-    fab.classList.toggle('is-visible', y > 600);
+    header.classList.toggle('is-stuck', window.scrollY > 8);
+    fab.classList.toggle('is-visible', window.scrollY > 600);
     ticking = false;
   };
   window.addEventListener('scroll', () => {
@@ -1099,55 +1027,35 @@ ul{list-style:none;padding:0}
   }, { passive: true });
   onScroll();
 
-  /* ---------- Menú mobile ---------- */
   const toggle = document.getElementById('navToggle');
-  const links  = document.getElementById('navLinks');
-
-  const closeNav = () => {
+  const links = document.getElementById('navLinks');
+  const closeNav = (restoreFocus = false) => {
     links.classList.remove('is-open');
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Abrir menú');
+    if (restoreFocus) toggle.focus();
   };
-
   toggle.addEventListener('click', () => {
     const open = links.classList.toggle('is-open');
     toggle.setAttribute('aria-expanded', String(open));
     toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
   });
-
-  links.addEventListener('click', e => { if (e.target.closest('a')) closeNav(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNav(); });
-  document.addEventListener('click', e => {
-    if (!links.contains(e.target) && !toggle.contains(e.target)) closeNav();
+  links.addEventListener('click', event => { if (event.target.closest('a')) closeNav(); });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && links.classList.contains('is-open')) closeNav(true);
+  });
+  document.addEventListener('click', event => {
+    if (!links.contains(event.target) && !toggle.contains(event.target)) closeNav();
   });
 
-  /* ---------- FAQ: un acordeón abierto por vez ---------- */
   const faq = document.getElementById('faqList');
-  faq.addEventListener('toggle', e => {
-    const d = e.target;
-    if (d.tagName === 'DETAILS' && d.open) {
-      faq.querySelectorAll('details[open]').forEach(o => { if (o !== d) o.open = false; });
+  faq.addEventListener('toggle', event => {
+    const detail = event.target;
+    if (detail.tagName === 'DETAILS' && detail.open) {
+      faq.querySelectorAll('details[open]').forEach(other => { if (other !== detail) other.open = false; });
     }
   }, true);
 
-  /* ---------- Reveal on scroll ---------- */
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const items   = document.querySelectorAll('.reveal');
-
-  if (reduced || !('IntersectionObserver' in window)) {
-    items.forEach(el => el.classList.add('is-in'));
-  } else {
-    const io = new IntersectionObserver((entries, obs) => {
-      entries.forEach((entry, i) => {
-        if (!entry.isIntersecting) return;
-        setTimeout(() => entry.target.classList.add('is-in'), i * 70);
-        obs.unobserve(entry.target);
-      });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-    items.forEach(el => io.observe(el));
-  }
-
-  /* ---------- Formulario: validación + envío ---------- */
   const form    = document.getElementById('leadForm');
   const status  = document.getElementById('formStatus');
   const btn     = document.getElementById('submitBtn');
