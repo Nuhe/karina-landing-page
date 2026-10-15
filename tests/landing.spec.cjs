@@ -21,9 +21,8 @@ const server = http.createServer((request, response) => {
 (async () => {
   let browser;
   try {
-    assert.match(html, /No todos buscamos lo mismo/);
-    assert.match(html, /¿Por qué no hay precios en esta página/);
-    assert.doesNotMatch(html, /id="opiniones"|<article class="quote |\[TESTIMONIO/);
+    assert.doesNotMatch(html.normalize('NFD').replace(/[\u0300-\u036f]/g, ''), /matricul/i);
+    assert.doesNotMatch(html, /\[(?:NOMBRE|ZONA|DOMINIO|WHATSAPP|PLAN|VALOR|EMAIL|FORM_ENDPOINT)|wa\.me|mailto:|tel:/);
     await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
     const url = `http://127.0.0.1:${server.address().port}/`;
     browser = await chromium.launch({ executablePath: '/usr/bin/chromium', headless: true, args: ['--no-sandbox'] });
@@ -35,9 +34,13 @@ const server = http.createServer((request, response) => {
       page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
       await page.goto(url);
       assert.equal(await page.locator('.hero').evaluate(element => getComputedStyle(element).backgroundColor), 'rgb(30, 90, 156)');
-      assert.ok(await page.locator('.hero, .nav, #planes, #beneficios, #proceso, #faq').evaluateAll(elements => elements.every(element => element.scrollWidth <= innerWidth)), `presentation/guidance overflow at ${width}`);
       assert.equal(await page.locator('.hero h1').evaluate(element => getComputedStyle(element).color), 'rgb(255, 255, 255)');
       assert.equal(await page.locator('#submitBtn').evaluate(element => getComputedStyle(element).backgroundColor), 'rgb(30, 90, 156)');
+      assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `overflow at ${width}`);
+      assert.ok(await page.locator('.form, .field select, #submitBtn').evaluateAll(elements => elements.every(element => {
+        const bounds = element.getBoundingClientRect();
+        return bounds.left >= 0 && bounds.right <= innerWidth && element.scrollWidth <= element.clientWidth;
+      })), `form and controls must fit without clipping at ${width}`);
       assert.deepEqual(await page.locator('a[href^="#"]').evaluateAll(anchors => anchors.filter(anchor => !document.getElementById(anchor.hash.slice(1))).map(anchor => anchor.hash)), []);
       assert.ok(await page.locator('.demo-notice').isVisible());
       if (width > 900) assert.equal(await page.locator('.nav__cta-mobile').isVisible(), false);
@@ -57,16 +60,33 @@ const server = http.createServer((request, response) => {
       await summaries.nth(0).click();
       assert.equal(await page.locator('#faqList details').nth(0).getAttribute('open'), '');
       await summaries.nth(1).click();
+      await page.waitForFunction(() => {
+        const details = [...document.querySelectorAll('#faqList details')];
+        return details[1].open && details.filter(detail => detail.open).length === 1;
+      }, undefined, { timeout: 1000 });
       assert.equal(await page.locator('#faqList details[open]').count(), 1);
+      await page.locator('#submitBtn').click();
+      assert.equal(await page.locator('.field.is-invalid').count(), 2, 'all invalid fields receive feedback');
+      assert.equal(await page.evaluate(() => document.activeElement.id), 'f-plan');
+      await page.locator('#f-plan').selectOption('familiar');
+      await page.locator('#f-priority').selectOption('cartilla');
+      const requests = [];
+      page.on('request', request => requests.push(request.url()));
+      await page.locator('#submitBtn').click();
+      assert.match(await page.locator('#formStatus').innerText(), /No se enviaron ni guardaron datos/);
+      assert.deepEqual(requests, [], 'demo submission cannot make requests');
+      assert.equal(await page.evaluate(() => localStorage.length + sessionStorage.length), 0);
+      assert.deepEqual(await context.cookies(), []);
+      assert.equal(await page.locator('input, textarea').count(), 0, 'demo does not solicit personal or medical data');
       assert.deepEqual(errors, [], `browser errors at ${width}`);
       await page.evaluate(() => scrollTo(0, 0));
       if (width !== 768) {
-        const screenshot = `/tmp/karina-blue-guidance-${width}.png`;
+        const screenshot = `/tmp/karina-blue-${width}.png`;
         await page.screenshot({ path: screenshot, fullPage: true });
         console.log(`Screenshot: ${screenshot}`);
       }
       await context.close();
-      console.log(`PASS: ${width}px presentation, anchors, navigation, FAQ, reduced motion, console`);
+      console.log(`PASS: ${width}px layout, anchors, navigation, FAQ, demo form, reduced motion, privacy, console`);
     }
     const motion = await browser.newContext({ viewport: { width: 375, height: 1000 } });
     const motionPage = await motion.newPage();
@@ -83,10 +103,11 @@ const server = http.createServer((request, response) => {
     assert.ok(await page.locator('#planes h2').isVisible());
     assert.equal(await page.locator('#planes h2').evaluate(element => getComputedStyle(element.closest('.reveal')).opacity), '1');
     assert.ok(await page.locator('#navLinks').isVisible(), 'navigation remains available without JavaScript');
+    assert.ok(await page.locator('#submitBtn').isDisabled(), 'form cannot navigate or transmit without JavaScript');
     await page.locator('#faqList summary').first().click();
     assert.equal(await page.locator('#faqList details[open]').count(), 1);
     await noScript.close();
-    console.log('PASS: JavaScript-disabled content, navigation and FAQ');
+    console.log('PASS: JavaScript-disabled content, navigation, FAQ and safe form');
   } finally {
     if (browser) await browser.close();
     if (server.listening) await new Promise(resolve => server.close(resolve));
