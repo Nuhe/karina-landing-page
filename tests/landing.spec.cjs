@@ -21,6 +21,9 @@ const server = http.createServer((request, response) => {
 (async () => {
   let browser;
   try {
+    assert.match(html, /No todos buscamos lo mismo/);
+    assert.match(html, /¿Por qué no hay precios en esta página/);
+    assert.doesNotMatch(html, /id="opiniones"|<article class="quote |\[TESTIMONIO/);
     await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
     const url = `http://127.0.0.1:${server.address().port}/`;
     browser = await chromium.launch({ executablePath: '/usr/bin/chromium', headless: true, args: ['--no-sandbox'] });
@@ -32,7 +35,7 @@ const server = http.createServer((request, response) => {
       page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
       await page.goto(url);
       assert.equal(await page.locator('.hero').evaluate(element => getComputedStyle(element).backgroundColor), 'rgb(30, 90, 156)');
-      assert.ok(await page.locator('.hero, .nav').evaluateAll(elements => elements.every(element => element.scrollWidth <= innerWidth)), `hero/navigation overflow at ${width}`);
+      assert.ok(await page.locator('.hero, .nav, #planes, #beneficios, #proceso, #faq').evaluateAll(elements => elements.every(element => element.scrollWidth <= innerWidth)), `presentation/guidance overflow at ${width}`);
       assert.equal(await page.locator('.hero h1').evaluate(element => getComputedStyle(element).color), 'rgb(255, 255, 255)');
       assert.equal(await page.locator('#submitBtn').evaluate(element => getComputedStyle(element).backgroundColor), 'rgb(30, 90, 156)');
       assert.deepEqual(await page.locator('a[href^="#"]').evaluateAll(anchors => anchors.filter(anchor => !document.getElementById(anchor.hash.slice(1))).map(anchor => anchor.hash)), []);
@@ -50,16 +53,40 @@ const server = http.createServer((request, response) => {
         assert.equal(await page.locator('#navToggle').getAttribute('aria-expanded'), 'false');
         assert.equal(await page.evaluate(() => document.activeElement.id), 'navToggle');
       }
+      const summaries = page.locator('#faqList summary');
+      await summaries.nth(0).click();
+      assert.equal(await page.locator('#faqList details').nth(0).getAttribute('open'), '');
+      await summaries.nth(1).click();
+      assert.equal(await page.locator('#faqList details[open]').count(), 1);
       assert.deepEqual(errors, [], `browser errors at ${width}`);
       await page.evaluate(() => scrollTo(0, 0));
       if (width !== 768) {
-        const screenshot = `/tmp/karina-blue-presentation-${width}.png`;
+        const screenshot = `/tmp/karina-blue-guidance-${width}.png`;
         await page.screenshot({ path: screenshot, fullPage: true });
         console.log(`Screenshot: ${screenshot}`);
       }
       await context.close();
-      console.log(`PASS: ${width}px hero palette, anchors, navigation, reduced motion, console`);
+      console.log(`PASS: ${width}px presentation, anchors, navigation, FAQ, reduced motion, console`);
     }
+    const motion = await browser.newContext({ viewport: { width: 375, height: 1000 } });
+    const motionPage = await motion.newPage();
+    await motionPage.goto(url);
+    await motionPage.locator('#navToggle').focus();
+    await motionPage.keyboard.press('Enter');
+    await motionPage.keyboard.press('Tab');
+    assert.equal(await motionPage.evaluate(() => document.activeElement.getAttribute('href')), '#planes');
+    await motion.close();
+    console.log('PASS: immediate keyboard navigation with normal motion');
+    const noScript = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 375, height: 1000 } });
+    const page = await noScript.newPage();
+    await page.goto(url);
+    assert.ok(await page.locator('#planes h2').isVisible());
+    assert.equal(await page.locator('#planes h2').evaluate(element => getComputedStyle(element.closest('.reveal')).opacity), '1');
+    assert.ok(await page.locator('#navLinks').isVisible(), 'navigation remains available without JavaScript');
+    await page.locator('#faqList summary').first().click();
+    assert.equal(await page.locator('#faqList details[open]').count(), 1);
+    await noScript.close();
+    console.log('PASS: JavaScript-disabled content, navigation and FAQ');
   } finally {
     if (browser) await browser.close();
     if (server.listening) await new Promise(resolve => server.close(resolve));
